@@ -133,9 +133,25 @@ console.log(myname, printname());
 var myname = "Asanga";
 
 function printname() {
-    console.log(aaaa);
+  console.log(aaaa);
 
-    var aaaa = 12093;
-    
-    return "Jone Doe";
+  var aaaa = 12093;
+
+  return "Jone Doe";
 }
+
+
+function runexpresso() {
+  var a = 10;
+  function add() {
+    console.log("Inside the nested function")
+    var b = 90;
+    console.log(b);
+    myage =10;
+    return a + b;
+  }
+  
+  return add();
+}
+
+runexpresso();

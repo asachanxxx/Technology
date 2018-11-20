@@ -331,3 +331,93 @@ triggerFalseClick() {
            return "Jone Doe";
 
 ## Scope of objects
+
+take a look at following code segment
+
+function runexpresso() {
+  var a = 10;
+  function add() {
+    console.log("Inside the nested function")
+    var b = 90;
+    return a + b;
+  }
+
+  return 100;
+}
+
+does it print out "Inside the nested function"? 
+answer is no . cus unless you using it it never fires. also the variables
+this is the cope of objects in js
+
+in here we have a concept of excution stack . these functions are stacked for excution
+
+runexpresso()
+add()
+
+after this add method invoced all the variables with in it will be garbaged and collected by GC
+
+function runexpresso() {
+  var a = 10;
+  function add() {
+    console.log("Inside the nested function")
+    var b = 90;
+    return a + b;
+  }
+
+  add();
+  console.log( b )
+
+  return 100;
+}
+
+in this case you logged be is a mistake . in this point b is undefined. cus when js excute it will put functions in to stack so in the stack first one it runexpresso() and then the add().
+so add only runs after last } of runexpresso(); so that is why it logged b as undefined cus that point actually b is not existed. so after add() excuted it wil garbage b imidiately so we never can get the value of b in outside.
+
+## Excution Stack  = Main thread that js runs
+
+    function runexpresso() {
+      function add() {
+          console.log("Inside the nested function")
+          var b = 90;
+          return a + b;
+      }
+    }
+
+so this add() function and all variables in it are temporary  to that is we call
+Outer excution Enviroment 
+
+##The Clobal scope
+
+liek window object is the highest level of scope . all the things attach to this are available globally. so window = global scopes
+
+    var myname = "Asanga"; **This will be added to global scope **
+
+    function printname() {  **This will be added to global scope **
+      console.log(myname);
+  
+        function add() {
+          var myname = [];
+          console.log(myname)
+        }
+  
+      return "Jone Doe";
+    }
+
+so in here only 2 are added to global scope
+so in this case inside add we have printed out myname. when it happen it will look up scope for the variable and it imidiately sees the myname initialize with array and printed out empty array. if myname is not defined in this scope it will look at  printname() scope . and it can't find it will go to global scope to search for that variable . this is the infar way to search objects in js
+
+**if you use const in the myname inside add() it will create another object inside the add().
+other wise it will always inferred to global myname object .**
+
+   var myname = "Asanga"; **This will be added to global scope **
+
+    function printname() {  **This will be added to global scope **
+        function add() {
+           myage = 28;
+        }
+      return "Jone Doe";
+    }
+
+    so what about myage property.  ok this is hard and harts me. when we declare a variable without any modifire inside a scope like myage it will added to the global scope. what the hell.
+
+    **So don't ever create variables without var or let or const inside functions cus it will be added to global scope. and filling the global scope is not a good thing**
