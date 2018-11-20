@@ -1,0 +1,41 @@
+<p>
+  test1 works!
+
+  <app-test2 [data]="data" groupBy="label" display="ttitreLFr"></app-test2>
+</p>
+
+
+      <form  #contactForm = "ngForm" (submit)="getMailSender(message)">
+        <div class="modal-header text-center">
+          <h5 class="modal-title mx-auto">Contact</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <input id="contact-name" (ngModel)="message" name="name" type="text" class="form-control"
+                   placeholder="Enter name" >
+          </div>
+          <div class="form-group">
+            <input id="contact-subject" (ngModel)="message1" name="subject" type="text" class="form-control"
+                   placeholder="Enter subject" required>
+          </div>
+          <div class="form-group">
+            <input id="contact-email" [(ngModel)]="message2" name="email" type="email" class="form-control"
+                   placeholder="Enter email" required>
+          </div>
+          <div class="form-group">
+            <textarea id="contact-message" [(ngModel)]="message3" name="message" class="form-control"
+                      placeholder="Enter message" rows="3" required></textarea>
+          </div>
+        </div>
+      
+      </form>
+      <button [disabled]="!contactForm.valid" type="submit" class="btn btn-primary">Send</button>
+
+    <button (click)="sendDictionary()"  class="btn btn-primary">Send Http POST</button>
+    <button (click)="GetDictionary()"  class="btn btn-primary">Send Http Get</button>
+    
+      
+ 

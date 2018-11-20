@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery Flex Hover Slider Demo</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+        </script>
+        <style>
+            #wrapper {
+                width: 100%;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            #left,
+            #right {
+                display: inline-block;
+                width: 50%;
+            }
+
+            #left {
+                background: red;
+            }
+
+            #right {
+                background: yellow;
+            }
+        </style>
+
+
+        <script>
+            $(document).ready(function () {
+                console.log("ready!");
+
+                $("#left, #right").each(function () {
+                    $(this).data("standardWidth", $(this).width());
+                    console.log(this);
+                });
+
+                $("#left, #right").hover(function () {
+                    console.log(this);
+                    $(this).animate({
+                        width: "70%"
+                    }, 300);
+                    $(this).parent().children().not(this).animate({
+                        width: "30%"
+                    }, 300);
+                }, function () {
+                    $(this).parent().children().each(function () {
+                        $(this).animate({
+                            width: $(this).data("standardWidth")
+                        }, 300);
+                    });
+                });
+            });
+        </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="left" class="content_left">LEFT</div>
+        <div id="right" class="content_right">RIGHT</div>
+    </div>
+
+
+</body>
+
+</html>
