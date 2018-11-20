@@ -11,79 +11,12 @@
     
 <h1>JavaScript 101</h1>
 
-<code>
-    <p>
-    function makeCoffee(sugerqty, milkper) {
-        var instructions = "Boil Water , ";
-        instructions += " pour into cup ";
-        instructions += " add " + sugerqty + " spoons of suger";
-        instructions += " add " + milkper + "% milk";
-        return instructions;
-      }
-      console.clear();
-      console.log(makeCoffee(20, 40));
-      
-      function log(val) {
-        console.log(val)
-      }
-      
-      console.timeStamp("Start");
-      var Cartemplate = {
-        Color: "Red",
-        Speed: 165,
-        Make: "Volvo",
-        Drvie: function () {
-          return "Driving now......."
-        },
-        Stop: function () {},
-        Engine: {
-          Size: 2.0,
-          Maker: "VTX Man",
-          FuelType: "Petrol",
-          Pistons: [{
-            Maker: "BMW"
-          }, {
-            Maker: "Bugati"
-          }]
-        }
-      };
-      
-      var shopinglist = ["Milk",
-        100,
-        "Suger",
-        "Rice",
-        ["EmbededArray", 200],
-        {
-          Car: "Mazda 1234"
-        },
-        function () {
-          return "Volvo"
-        }
-      ];
-      
-      log(Cartemplate.Make);
-      log(Cartemplate.Engine.Pistons[0]);
-      log(Cartemplate.Engine.Pistons[0].Maker);
-      log(shopinglist[5].Car);
-      
-      log(Cartemplate.Drvie());
-      
-      log([1+1-89]);
-      var a = 10;
-      log(shopinglist[a-5-2]); //will print rice
-      
-      //log(Cartemplate[Color]); -- error in this line Uncaught ReferenceError: Color is not defined
-      log(Cartemplate["Color"]);
-      
-      log(Cartemplate["Engine"]["Pistons"][1]["Maker"]);
-      
-      log(Cartemplate["Eng"+"ine"]);
-    </p>
-</code>
 
 
 </body>
 
-<Script src="main.js"> </Script>
+<!-- <Script src="main.js"> </Script> -->
+<!-- <Script src="thisword.js"> </Script> -->
+<Script src="classesandprototypes.js"> </Script>
 
 </html>
