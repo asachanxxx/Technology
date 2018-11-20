@@ -418,6 +418,6 @@ other wise it will always inferred to global myname object .**
       return "Jone Doe";
     }
 
-    so what about myage property.  ok this is hard and harts me. when we declare a variable without any modifire inside a scope like myage it will added to the global scope. what the hell.
+**so what about myage property.  ok this is hard and harts me. when we declare a variable without any modifire inside a scope like myage it will added to the global scope. what the hell.**
 
-    **So don't ever create variables without var or let or const inside functions cus it will be added to global scope. and filling the global scope is not a good thing**
+**So don't ever create variables without var or let or const inside functions cus it will be added to global scope. and filling the global scope is not a good thing**
